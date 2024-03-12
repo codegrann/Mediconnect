@@ -20,7 +20,8 @@ const Navbar = () => {
       <div className="container">
         <div className="logo">
           <Link to="/" className="">
-            <Logo />
+            <h1>LOGO</h1>
+            {/* <Logo /> */}
           </Link>
         </div>
         <div className="menu-icon" onClick={handleShowNavbar}>
