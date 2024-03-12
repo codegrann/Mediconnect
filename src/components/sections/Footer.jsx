@@ -8,23 +8,23 @@ function Footer() {
       <footer className="footer p-10 bg-base-300 text-base-content">
         <nav>
           <h6 className="footer-title">Services</h6>
-          <a
+          <p
             className="link link-hover"
             onClick={() => navigate("/clientprofile")}
           >
             Lorem
-          </a>
-          <a className="link link-hover">Lorem</a>
-          <a className="link link-hover">Lorem</a>
+          </p>
+          <p className="link link-hover">Lorem</p>
+          <p className="link link-hover">Lorem</p>
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
-          <a href="/signin" className="link link-hover">
+          <p className="link link-hover" onClick={() => navigate("/terms")}>
             Terms of Service & Privacy Policy
-          </a>
-          <a href="#contactus" className="link link-hover">
+          </p>
+          <p href="#contactus" className="link link-hover">
             FAQs
-          </a>
+          </p>
         </nav>
         <nav>
           <h6 className="footer-title">Social</h6>
