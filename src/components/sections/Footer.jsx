@@ -19,11 +19,11 @@ function Footer() {
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
-          <a href="#aboutus" className="link link-hover">
-            About us
+          <a href="/signin" className="link link-hover">
+            Terms of Service & Privacy Policy
           </a>
           <a href="#contactus" className="link link-hover">
-            Contact
+            FAQs
           </a>
         </nav>
         <nav>
