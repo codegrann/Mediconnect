@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect, useContext } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import db from "./firebase";
+import { onSnapshot, collection, addDoc } from "firebase/firestore";
+// import {
+//   getStorage,
+//   ref,
+//   getDownloadURL,
+//   uploadBytesResumable,
+//   getMetadata,
+// } from "firebase/storage";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+
+import { UsersContext } from "./Hooks/UsersContext";
+import Home from "./pages/Home";
+import ClientDashboard from "./pages/ClientDashboard";
+import DoctorDashBoard from "./pages/DoctorDashBoard";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/sections/Footer";
+import About from "./components/sections/About";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [users, setUsers] = useState([]);
+  // const storage = getStorage();
+  useEffect(() => {
+    onSnapshot(collection(db, "clients"), (snapshot) => {
+      setUsers(snapshot.docs.map((doc) => doc.data()));
+      console.log(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
+
+  // const query = collection(db, "clients");
+  // const [docs, loading, error] = useCollectionData(query);
+
+  //
 
   return (
-    <>
+    <UsersContext.Provider value={users}>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <BrowserRouter>
+          <Navbar />
+          <div className="px-6">
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              {/* <Route path="/clientprofile" element={<ClientDashboard />} /> */}
+              <Route path="/doctorprofile" element={<DoctorDashBoard />} />
+              {/* <Route path="/about" element={<About />} /> */}
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/client/dashboard" element={<ClientDashboard />} />
+              <Route
+                path="/practitioner/dashboard"
+                element={<DoctorDashBoard />}
+              />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </UsersContext.Provider>
+  );
 }
 
-export default App
+export default App;
