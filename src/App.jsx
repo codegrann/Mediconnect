@@ -1,17 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import db from "./firebase";
-import { onSnapshot, collection, addDoc } from "firebase/firestore";
-// import {
-//   getStorage,
-//   ref,
-//   getDownloadURL,
-//   uploadBytesResumable,
-//   getMetadata,
-// } from "firebase/storage";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-
 import { UsersContext } from "./Hooks/UsersContext";
 import Home from "./pages/Home";
 import ClientDashboard from "./pages/ClientDashboard";
@@ -26,18 +15,6 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const [users, setUsers] = useState([]);
-  // const storage = getStorage();
-  useEffect(() => {
-    onSnapshot(collection(db, "clients"), (snapshot) => {
-      setUsers(snapshot.docs.map((doc) => doc.data()));
-      console.log(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
-
-  // const query = collection(db, "clients");
-  // const [docs, loading, error] = useCollectionData(query);
-
-  //
 
   return (
     <UsersContext.Provider value={users}>
