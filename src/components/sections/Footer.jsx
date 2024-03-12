@@ -65,7 +65,7 @@ function Footer() {
           </div>
         </nav>
       </footer>
-      <p className="p-10 bg-base-300 text-base-content">
+      <p className="pb-6 bg-base-300 text-sm text-center text-base-content">
         copyright<sup>c</sup>
       </p>
     </div>
