@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import AuthDetails from "../components/auth/AuthDetails";
-
 import userIcon from "/person.png";
 import emailIcon from "/email.png";
 import passwordIcon from "/password.png";
@@ -13,17 +11,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignin = (e) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        console.log("login successful");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const handleSignin = (e) => {};
 
   return (
     <>
@@ -94,7 +82,6 @@ const SignIn = () => {
           </button>
         </div>
       </form>
-      <AuthDetails />
     </>
   );
 };

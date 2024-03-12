@@ -12,18 +12,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // navigate("/signin");
-    e.target.reset();
-  };
+  const handleSignUp = (e) => {};
 
   return (
     <>
