@@ -14,22 +14,61 @@ import About from "./components/sections/About";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({
+    patientName: "Patient 1",
+    age: 46,
+    gender: "male",
+  });
+  const initialpatientHistory = [
+    {
+      providerName: "Provider 1",
+      regno: "GH459653",
+      facility: "Facility 1",
+      date: "2021-08-01",
+      symptoms: "Fever, joint pain, vomiting",
+      diagnosis: "Malaria",
+      treatment: "Antibiotics",
+    },
+    {
+      providerName: "Provider 2",
+      regno: "GH45345",
+      facility: "Facility 2",
+      date: "2021-08-01",
+      symptoms: "Fever, joint pain, vomiting",
+      diagnosis: "Malaria",
+      treatment: "Antibiotics",
+    },
+  ];
+  const [patientHistory, setPatientHistory] = useState(initialpatientHistory);
 
   return (
-    <UsersContext.Provider value={users}>
+    <UsersContext.Provider value={user}>
       <div>
         <BrowserRouter>
           <Navbar />
           <div className="px-6">
             <Routes>
               <Route exact path="/" element={<Home />} />
-              {/* <Route path="/clientprofile" element={<ClientDashboard />} /> */}
-              <Route path="/doctorprofile" element={<DoctorDashBoard />} />
-              {/* <Route path="/about" element={<About />} /> */}
+              <Route
+                path="/doctorprofile"
+                element={
+                  <DoctorDashBoard
+                    patientHistory={patientHistory}
+                    user={user}
+                  />
+                }
+              />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/client/dashboard" element={<ClientDashboard />} />
+              <Route
+                path="/client/dashboard"
+                element={
+                  <ClientDashboard
+                    patientHistory={patientHistory}
+                    user={user}
+                  />
+                }
+              />
               <Route
                 path="/practitioner/dashboard"
                 element={<DoctorDashBoard />}

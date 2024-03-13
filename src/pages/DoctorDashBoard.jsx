@@ -6,7 +6,7 @@ import Input from "../components/Minor/Inputs/Input";
 import ClickForward from "../components/Minor/Actions/ClickForward";
 import Textarea from "../components/Minor/Inputs/Textarea";
 
-function DoctorDashBoard() {
+function DoctorDashBoard({ patientHistory, user }) {
   const [isAddingHistory, setisAddingHistory] = useState(false);
   const [isLoggingUser, setIsLoggingUser] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
@@ -118,7 +118,7 @@ function DoctorDashBoard() {
           </>
         )}
         {/* Log patients data after logging them */}
-        <HealthHistory />
+        <HealthHistory patientHistory={patientHistory} user={user} />
       </>
       {/* )} */}
     </div>

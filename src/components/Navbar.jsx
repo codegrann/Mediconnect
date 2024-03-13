@@ -72,20 +72,24 @@ const Navbar = () => {
               <span className="font-semibold">Get started</span>
             </li>
             <li
-              className="border-2 border-red-400 cursor-pointer w-16 md:w-8"
+              className=""
               onClick={() => {
                 navigate("/client/dashboard");
               }}
             >
-              <ImageContainer imageurl="/person.png" size={10} />
+              <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                <ImageContainer imageurl="/person.png" />
+              </div>
             </li>
             <li
-              className="border-2 border-red-400 cursor-pointer w-16 md:w-8"
+              className=""
               onClick={() => {
                 navigate("/practitioner/dashboard");
               }}
             >
-              <ImageContainer imageurl="/person.png" size={10} />
+              <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                <ImageContainer imageurl="/person.png" />
+              </div>
             </li>
           </ul>
         </div>
