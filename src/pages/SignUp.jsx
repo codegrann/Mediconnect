@@ -14,17 +14,44 @@ const SignUp = () => {
   const [nationalID, setNationalID] = useState();
   const [phone, setPhone] = useState();
   const [dob, setDob] = useState();
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const gender=
-  const navigate = useNavigate();
-  console.log(dob);
+  // const [confirmPassword, setConfirmPassword] = useState("");
+  const [gender, setGender] = useState();
 
-  const handleSignUp = (e) => {};
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    nationalID: "",
+    phone: "",
+    dob: "",
+    gender: "",
+  });
+
+  const navigate = useNavigate();
+  // console.log(gender);
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData({
+      ...formData,
+      name: name,
+      email: email,
+      password: password,
+      nationalID: nationalID,
+      phone: phone,
+      dob: dob,
+      gender: gender,
+    });
+    console.log(formData);
+  };
 
   return (
     <>
       <form
-        onSubmit={handleSignUp}
+        // onSubmit={handleSignUp}
         className="form-control flex flex-col min-[500px]:w-7/8  m-auto my-[80px] bg-white pb-[30px] "
       >
         <div className="flex flex-col items-center gap-2 w-full mt-[30px]  ">
@@ -113,11 +140,12 @@ const SignUp = () => {
               type="date"
               placeholder="DOB dd/mm/yyyy"
               value={dob}
+              required
               onChange={(e) => setDob(e.target.value)}
             />
           </div>
           <div className="flex items-center m-auto w-full  rounded-md ">
-            <div class="flex items-center mb-4">
+            <div className="flex items-center mb-4">
               <input
                 id="radio-1"
                 className="radio radio-success radio-xs"
@@ -125,17 +153,17 @@ const SignUp = () => {
                 name="gender"
                 value="male"
                 required
-                // onSelect={(e) => setGender(e.target.value)}
+                onChange={handleGenderChange}
               />
 
               <label
-                for="radio-1"
-                class="ms-2 text-sm font-medium text-gray-900"
+                htmlFor="radio-1"
+                className="ms-2 text-sm font-medium text-gray-900"
               >
                 Male
               </label>
             </div>
-            <div class="flex items-center mb-4">
+            <div className="flex items-center mb-4">
               <input
                 id="radio-2"
                 className="radio radio-success radio-xs ml-[10px]"
@@ -143,16 +171,16 @@ const SignUp = () => {
                 name="gender"
                 value="female"
                 required
-                //  onSelect={(e) => setGender(e.target.value)}
+                onChange={handleGenderChange}
               />
               <label
-                for="radio-2"
-                class="ms-2 text-sm font-medium text-gray-900"
+                htmlFor="radio-2"
+                className="ms-2 text-sm font-medium text-gray-900"
               >
                 Female
               </label>
             </div>
-            <div class="flex items-center mb-4">
+            <div className="flex items-center mb-4">
               <input
                 id="radio-3"
                 className="radio radio-success radio-xs ml-[10px]"
@@ -160,11 +188,11 @@ const SignUp = () => {
                 name="gender"
                 value="other"
                 required
-                //  onSelect={(e) => setGender(e.target.value)}
+                onChange={handleGenderChange}
               />
               <label
-                for="radio-3"
-                class="ms-2 text-sm font-medium text-gray-900 "
+                htmlFor="radio-3"
+                className="ms-2 text-sm font-medium text-gray-900 "
               >
                 Other
               </label>
@@ -183,6 +211,7 @@ const SignUp = () => {
               type="password"
               placeholder="Password"
               value={password}
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -197,6 +226,7 @@ const SignUp = () => {
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
               type="password"
               placeholder="Confirm password"
+              required
               // value={password}
               // onChange={(e) => setPassword(e.target.value)}
             />
@@ -204,7 +234,10 @@ const SignUp = () => {
         </div>
 
         <div className="flex gap-[30px] my-[30px] mx-auto ">
-          <button className="flex justify-center items-center px-[20px] py-[5px] text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer">
+          <button
+            className="flex justify-center items-center px-[20px] py-[5px] text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer"
+            onClick={handleSubmit}
+          >
             Sign Up
           </button>
           <div
