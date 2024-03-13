@@ -22,7 +22,7 @@ const SignUp = () => {
     <>
       <form
         onSubmit={handleSignUp}
-        className="flex flex-col min-[500px]:w-7/8  m-auto my-[80px] bg-white pb-[30px] "
+        className="form-control flex flex-col min-[500px]:w-7/8  m-auto my-[80px] bg-white pb-[30px] "
       >
         <div className="flex flex-col items-center gap-2 w-full mt-[30px]  ">
           <div className="text-[#10Bb32]text-sm md:text-3xl font-medium">
@@ -115,7 +115,7 @@ const SignUp = () => {
           </div>
           <div className="flex items-center m-auto w-full  rounded-md ">
             <input
-              className=""
+              className="radio radio-success radio-xs"
               type="radio"
               name="gender"
               value="male"
@@ -124,7 +124,7 @@ const SignUp = () => {
             />{" "}
             Male
             <input
-              className=""
+              className="radio radio-success radio-xs ml-[10px]"
               type="radio"
               name="gender"
               value="female"
