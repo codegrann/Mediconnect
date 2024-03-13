@@ -1,13 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import userIcon from "/person.png";
-import emailIcon from "/email.png";
-import passwordIcon from "/password.png";
-import phone from "/phone.png";
-
 const SignUp = () => {
-  // const [action, setAction] = useState("Sign Up");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +9,7 @@ const SignUp = () => {
   const [phone, setPhone] = useState();
   const [dob, setDob] = useState();
   const [passwordMatch, setPasswordMatch] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const passwordRef = useRef();
@@ -76,8 +71,7 @@ const SignUp = () => {
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               type="text"
               placeholder="Full Name"
               value={name}
@@ -93,8 +87,7 @@ const SignUp = () => {
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               type="email"
               placeholder="Email"
               value={email}
@@ -109,8 +102,7 @@ const SignUp = () => {
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               type="number"
               placeholder="Phone number"
               value={phone}
@@ -126,8 +118,7 @@ const SignUp = () => {
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               type="number"
               placeholder="National ID/ Birth Certificate"
               value={nationalID}
@@ -143,8 +134,7 @@ const SignUp = () => {
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               type="date"
               placeholder="DOB dd/mm/yyyy"
               value={dob}
@@ -214,13 +204,20 @@ const SignUp = () => {
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               type="password"
               placeholder="Password"
               value={password}
               required
               onChange={(e) => setPassword(e.target.value)}
+            />
+            <img
+              src={showPassword ? "/eye_of.svg" : "/eye_on.svg"}
+              alt="passtoggler"
+              className="my-0 mr-4 size-4"
+              onClick={() => {
+                setShowPassword(!showPassword);
+              }}
             />
           </div>
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
@@ -230,7 +227,7 @@ const SignUp = () => {
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               ref={passwordRef}
               type="password"
               placeholder="Confirm password"

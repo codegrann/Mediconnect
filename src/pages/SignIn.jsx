@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import userIcon from "/person.png";
-import emailIcon from "/email.png";
-import passwordIcon from "/password.png";
-
 const SignIn = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -28,27 +24,27 @@ const SignIn = () => {
         <div className="mt-[35px] border-none  min-[500px]:w-3/4 md:w-[600px] min-[500px]:mx-auto flex flex-col gap-4  border-2  px-[10px]">
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src={emailIcon}
+              src="/person.svg"
               alt="emailicon"
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
               type="email"
-              placeholder="Email"
+              placeholder="username/email/phone"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
             <img
-              src={passwordIcon}
+              src="/password.svg"
               alt="passwordicon"
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
               type="password"
               placeholder="Password"
