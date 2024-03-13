@@ -6,6 +6,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignin = (e) => {};
 
@@ -46,10 +47,18 @@ const SignIn = () => {
             <input
               className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+            <img
+              src={showPassword ? "/eye_on.svg" : "/eye_off.svg"}
+              alt="passtoggler"
+              className="my-0 mr-4 size-4"
+              onClick={() => {
+                setShowPassword(!showPassword);
+              }}
             />
           </div>
         </div>

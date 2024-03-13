@@ -205,14 +205,14 @@ const SignUp = () => {
             />
             <input
               className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               required
               onChange={(e) => setPassword(e.target.value)}
             />
             <img
-              src={showPassword ? "/eye_of.svg" : "/eye_on.svg"}
+              src={showPassword ? "/eye_on.svg" : "/eye_off.svg"}
               alt="passtoggler"
               className="my-0 mr-4 size-4"
               onClick={() => {
