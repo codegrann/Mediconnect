@@ -67,14 +67,14 @@ const SignUp = () => {
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src="/phone.png"
-              alt="emailicon"
-              className="my-0 ml-[10px] size-4"
+              src="/phone.svg"
+              alt="phone icon"
+              className="my-0 ml-[10px] size-4 text-red-400"
             />
             <input
               className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
-              type="number"
+              type="date"
               placeholder="Phone number"
               value={phone}
               required
