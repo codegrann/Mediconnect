@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import userIcon from "/person.png";
@@ -14,7 +14,10 @@ const SignUp = () => {
   const [nationalID, setNationalID] = useState();
   const [phone, setPhone] = useState();
   const [dob, setDob] = useState();
-  // const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate();
+  const passwordRef = useRef();
+
   const [gender, setGender] = useState();
 
   const [formData, setFormData] = useState({
@@ -27,14 +30,15 @@ const SignUp = () => {
     gender: "",
   });
 
-  const navigate = useNavigate();
-  // console.log(gender);
   const handleGenderChange = (e) => {
     setGender(e.target.value);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (passwordRef.current.value !== password) {
+      alert("Passwords do not match");
+      return;
+    }
     setFormData({
       ...formData,
       name: name,
@@ -223,7 +227,7 @@ const SignUp = () => {
             />
             <input
               className="caret-red-700 py-4 bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              ref={passwordRef}
               type="password"
               placeholder="Confirm password"
               required
