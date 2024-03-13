@@ -14,6 +14,7 @@ const SignUp = () => {
   const [nationalID, setNationalID] = useState();
   const [phone, setPhone] = useState();
   const [dob, setDob] = useState();
+  const [passwordMatch, setPasswordMatch] = useState(true);
 
   const navigate = useNavigate();
   const passwordRef = useRef();
@@ -30,12 +31,15 @@ const SignUp = () => {
     gender: "",
   });
 
+  const handlePasswordMatch = (e) => {
+    setPasswordMatch(password === passwordRef.current.value);
+  };
   const handleGenderChange = (e) => {
     setGender(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (passwordRef.current.value !== password) {
+    if (!passwordMatch) {
       alert("Passwords do not match");
       return;
     }
@@ -231,10 +235,17 @@ const SignUp = () => {
               type="password"
               placeholder="Confirm password"
               required
-              // value={password}
-              // onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePasswordMatch}
             />
           </div>
+          {!passwordMatch && (
+            <p className="text-xs text-red-400 relative bottom-4 left-2">
+              passwords do not match
+            </p>
+          )}
+          {/* <p className="text-xs text-red-400 relative bottom-4 left-2">
+            passwords do not match
+          </p> */}
         </div>
 
         <div className="flex gap-[30px] my-[30px] mx-auto ">
