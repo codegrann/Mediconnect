@@ -51,7 +51,7 @@ const SignUp = () => {
   return (
     <>
       <form
-        // onSubmit={handleSignUp}
+        onSubmit={handleSubmit}
         className="form-control flex flex-col min-[500px]:w-7/8  m-auto my-[80px] bg-white pb-[30px] "
       >
         <div className="flex flex-col items-center gap-2 w-full mt-[30px]  ">
@@ -236,7 +236,7 @@ const SignUp = () => {
         <div className="flex gap-[30px] my-[30px] mx-auto ">
           <button
             className="flex justify-center items-center px-[20px] py-[5px] text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer"
-            onClick={handleSubmit}
+            // onSubmit={handleSubmit}
           >
             Sign Up
           </button>
