@@ -15,7 +15,9 @@ const SignUp = () => {
   const [phone, setPhone] = useState();
   const [dob, setDob] = useState();
   const [confirmPassword, setConfirmPassword] = useState("");
+  const gender=
   const navigate = useNavigate();
+  console.log(dob);
 
   const handleSignUp = (e) => {};
 
@@ -123,7 +125,7 @@ const SignUp = () => {
                 name="gender"
                 value="male"
                 required
-                // onChange={(e) => setEmail(e.target.value)}
+                // onSelect={(e) => setGender(e.target.value)}
               />
 
               <label
@@ -141,7 +143,7 @@ const SignUp = () => {
                 name="gender"
                 value="female"
                 required
-                // onChange={(e) => setEmail(e.target.value)}
+                //  onSelect={(e) => setGender(e.target.value)}
               />
               <label
                 for="radio-2"
@@ -158,7 +160,7 @@ const SignUp = () => {
                 name="gender"
                 value="other"
                 required
-                // onChange={(e) => setEmail(e.target.value)}
+                //  onSelect={(e) => setGender(e.target.value)}
               />
               <label
                 for="radio-3"
