@@ -10,6 +10,10 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [nationalID, setNationalID] = useState();
+  const [phone, setPhone] = useState();
+  const [dob, setDob] = useState();
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {};
@@ -37,8 +41,9 @@ const SignUp = () => {
               className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
               type="text"
-              placeholder="Name"
+              placeholder="Full Name"
               value={name}
+              required
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -58,6 +63,78 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+
+          <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
+            <img
+              src={emailIcon}
+              alt="emailicon"
+              className="my-0 ml-[10px] size-4"
+            />
+            <input
+              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              type="number"
+              placeholder="Phone number"
+              value={phone}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
+            <img
+              src={emailIcon}
+              alt="emailicon"
+              className="my-0 ml-[10px] size-4"
+            />
+            <input
+              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              type="number"
+              placeholder="National ID/ Birth Certificate"
+              value={nationalID}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
+            <img
+              src={emailIcon}
+              alt="emailicon"
+              className="my-0 ml-[10px] size-4"
+            />
+            <input
+              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              type="text"
+              placeholder="DOB dd/mm/yyyy"
+              value={dob}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center m-auto w-full  rounded-md ">
+            <input
+              className=""
+              type="radio"
+              name="gender"
+              value="male"
+              required
+              // onChange={(e) => setEmail(e.target.value)}
+            />{" "}
+            Male
+            <input
+              className=""
+              type="radio"
+              name="gender"
+              value="female"
+              required
+              // onChange={(e) => setEmail(e.target.value)}
+            />
+            {"  "}
+            Female
+          </div>
+
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
             <img
               src={passwordIcon}
@@ -71,6 +148,21 @@ const SignUp = () => {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
+            <img
+              src={passwordIcon}
+              alt="passwordicon"
+              className="my-0 ml-[10px] size-4"
+            />
+            <input
+              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
+              type="password"
+              placeholder="Confirm password"
+              // value={password}
+              // onChange={(e) => setPassword(e.target.value)}
             />
           </div>
         </div>
