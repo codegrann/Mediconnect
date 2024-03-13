@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import userIcon from "/person.png";
 import emailIcon from "/email.png";
 import passwordIcon from "/password.png";
+import phone from "/phone.png";
 
 const SignUp = () => {
   // const [action, setAction] = useState("Sign Up");
@@ -66,7 +67,7 @@ const SignUp = () => {
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src={emailIcon}
+              src={phone}
               alt="emailicon"
               className="my-0 ml-[10px] size-4"
             />
