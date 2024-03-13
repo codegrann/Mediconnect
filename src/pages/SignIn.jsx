@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [identity, setIdentity] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSignin = (e) => {};
+  const handleSignin = (e) => {
+    e.preventDefault();
+    console.log(identity, password);
+  };
 
   return (
     <>
@@ -31,11 +33,10 @@ const SignIn = () => {
             />
             <input
               className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
-              type="email"
+              type="text"
               placeholder="username/email/phone"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={identity}
+              onChange={(e) => setIdentity(e.target.value)}
             />
           </div>
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
@@ -46,7 +47,6 @@ const SignIn = () => {
             />
             <input
               className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
@@ -77,12 +77,7 @@ const SignIn = () => {
           >
             Sign Up
           </div>
-          <button
-            className="flex justify-center items-center px-[20px] py-[5px]  text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer"
-            onClick={() => {
-              handleSignin;
-            }}
-          >
+          <button className="flex justify-center items-center px-[20px] py-[5px]  text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer">
             Sign In
           </button>
         </div>
