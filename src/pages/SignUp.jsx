@@ -34,7 +34,7 @@ const SignUp = () => {
         <div className="mt-[35px] border-none  min-[500px]:w-3/4 md:w-[600px] min-[500px]:mx-auto flex flex-col gap-4  border-2  px-[10px]">
           <div className="flex items-center m-auto w-full  bg-[#9dc69d] rounded-md">
             <img
-              src={userIcon}
+              src="/person.svg"
               alt="usericon"
               className="my-0 ml-[10px] size-4"
             />
@@ -51,7 +51,7 @@ const SignUp = () => {
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src={emailIcon}
+              src="email.svg"
               alt="emailicon"
               className="my-0 ml-[10px] size-4"
             />
@@ -69,23 +69,23 @@ const SignUp = () => {
             <img
               src="/phone.svg"
               alt="phone icon"
-              className="my-0 ml-[10px] size-4 text-red-400"
+              className="my-0 ml-[10px] size-4"
             />
             <input
               className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
-              type="date"
+              type="number"
               placeholder="Phone number"
               value={phone}
               required
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src={emailIcon}
-              alt="emailicon"
+              src="/idcard.svg"
+              alt="idcard icon"
               className="my-0 ml-[10px] size-4"
             />
             <input
@@ -95,23 +95,23 @@ const SignUp = () => {
               placeholder="National ID/ Birth Certificate"
               value={nationalID}
               required
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setNationalID(e.target.value)}
             />
           </div>
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src={emailIcon}
-              alt="emailicon"
+              src="/calendar.svg"
+              alt="calendar icon"
               className="my-0 ml-[10px] size-4"
             />
             <input
               className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
               // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
-              type="text"
+              type="date"
               placeholder="DOB dd/mm/yyyy"
               value={dob}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setDob(e.target.value)}
             />
           </div>
           <div className="flex items-center m-auto w-full  rounded-md ">
@@ -171,7 +171,7 @@ const SignUp = () => {
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
             <img
-              src={passwordIcon}
+              src="/password.svg"
               alt="passwordicon"
               className="my-0 ml-[10px] size-4"
             />
@@ -186,7 +186,7 @@ const SignUp = () => {
           </div>
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
             <img
-              src={passwordIcon}
+              src="password.svg"
               alt="passwordicon"
               className="my-0 ml-[10px] size-4"
             />
