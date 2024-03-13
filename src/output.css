@@ -2118,6 +2118,10 @@ html {
   margin-top: 35px;
 }
 
+.ms-2 {
+  margin-inline-start: 0.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -2557,6 +2561,11 @@ html {
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
 .caret-red-700 {
   caret-color: #b91c1c;
 }
@@ -2871,6 +2880,11 @@ html {
   .dark\:bg-gray-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  }
+
+  .dark\:text-gray-300 {
+    --tw-text-opacity: 1;
+    color: rgb(209 213 219 / var(--tw-text-opacity));
   }
 
   .dark\:ring-offset-gray-800 {

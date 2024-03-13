@@ -114,25 +114,58 @@ const SignUp = () => {
             />
           </div>
           <div className="flex items-center m-auto w-full  rounded-md ">
-            <input
-              className="radio radio-success radio-xs"
-              type="radio"
-              name="gender"
-              value="male"
-              required
-              // onChange={(e) => setEmail(e.target.value)}
-            />{" "}
-            Male
-            <input
-              className="radio radio-success radio-xs ml-[10px]"
-              type="radio"
-              name="gender"
-              value="female"
-              required
-              // onChange={(e) => setEmail(e.target.value)}
-            />
-            {"  "}
-            Female
+            <div class="flex items-center mb-4">
+              <input
+                id="radio-1"
+                className="radio radio-success radio-xs"
+                type="radio"
+                name="gender"
+                value="male"
+                required
+                // onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <label
+                for="radio-1"
+                class="ms-2 text-sm font-medium text-gray-900"
+              >
+                Male
+              </label>
+            </div>
+            <div class="flex items-center mb-4">
+              <input
+                id="radio-2"
+                className="radio radio-success radio-xs ml-[10px]"
+                type="radio"
+                name="gender"
+                value="female"
+                required
+                // onChange={(e) => setEmail(e.target.value)}
+              />
+              <label
+                for="radio-2"
+                class="ms-2 text-sm font-medium text-gray-900"
+              >
+                Female
+              </label>
+            </div>
+            <div class="flex items-center mb-4">
+              <input
+                id="radio-3"
+                className="radio radio-success radio-xs ml-[10px]"
+                type="radio"
+                name="gender"
+                value="other"
+                required
+                // onChange={(e) => setEmail(e.target.value)}
+              />
+              <label
+                for="radio-3"
+                class="ms-2 text-sm font-medium text-gray-900 "
+              >
+                Other
+              </label>
+            </div>
           </div>
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
