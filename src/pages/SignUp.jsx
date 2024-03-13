@@ -67,7 +67,7 @@ const SignUp = () => {
 
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src={phone}
+              src="/phone.png"
               alt="emailicon"
               className="my-0 ml-[10px] size-4"
             />
