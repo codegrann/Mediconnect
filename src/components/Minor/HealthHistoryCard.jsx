@@ -21,10 +21,10 @@ function HealthHistory({ history }) {
             <b>Date:</b> {date}
           </span>
         </p>
-        <p className=" flex flex-wrap gap-4">
+        <p className=" flex flex-wrap gap-x-4">
           <b>Symptoms:</b> {symptoms}
         </p>
-        <p className=" flex flex-wrap gap-4">
+        <p className=" flex flex-wrap gap-x-4">
           <span>
             <b>Diagnosis:</b> {diagnosis}
           </span>
@@ -32,7 +32,7 @@ function HealthHistory({ history }) {
             <b>Treatment:</b> {treatment}
           </span>
         </p>
-        <p className=" flex flex-wrap gap-4">
+        <p className=" flex flex-wrap gap-x-4">
           <span>
             <b>Provider:</b> {providerName}
           </span>
