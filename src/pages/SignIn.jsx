@@ -12,7 +12,7 @@ const SignIn = ({ setIsLogged }) => {
     console.log(identity, password);
 
     setIsLogged(true);
-    vigate("/");
+    navigate("/");
   };
 
   return (
