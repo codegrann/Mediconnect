@@ -18,7 +18,7 @@ const SignIn = ({ setIsLogged }) => {
   return (
     <>
       <form
-        // onSubmit={handleSignin}
+        onSubmit={handleSignin}
         className="flex flex-col min-[500px]:w-7/8  m-auto my-[80px] bg-white pb-[30px] "
       >
         <div className="flex flex-col items-center gap-2 w-full mt-[30px]  ">
