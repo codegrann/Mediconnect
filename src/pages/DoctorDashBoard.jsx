@@ -14,7 +14,7 @@ function DoctorDashBoard({ patientHistory, user, practioner }) {
   return (
     <div>
       <Profile user={practioner} />
-      <div className="border-2 border-red-500 flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <h3 className="text-black font-medium mb-4 md:text-xl md:mb-10">
           Manage Patient data
         </h3>
@@ -47,7 +47,11 @@ function DoctorDashBoard({ patientHistory, user, practioner }) {
             </div>
             <div
               className="max-w-[100px] border-2"
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsUserLogged(true);
+                setIsLoggingUser(false);
+              }}
             >
               <ClickForward label="login" />
             </div>
@@ -55,72 +59,73 @@ function DoctorDashBoard({ patientHistory, user, practioner }) {
         )}
       </div>
 
-      {/* {isUserLogged && ( */}
-      <>
-        <div
-          className="max-w-[100px] border-2 font-medium"
-          onClick={(e) => {
-            e.preventDefault();
-            setisAddingHistory(isAddingHistory ? false : true);
-          }}
-        >
-          <ClickForward label={isAddingHistory ? "cancel" : "update"} />
-        </div>
-        {isAddingHistory && (
-          <>
-            {/* Adding to pattients */}
-            <form className=" border-2 border-green-500">
-              <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
-                <Input
-                  type="text"
-                  placeholder="facility details"
-                  required
-                  onChange={() => console.log("facility")}
-                />
-              </div>
-              <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
-                <Input
-                  type="text"
-                  placeholder="date: dd/mm/yyyy"
-                  required
-                  onChange={() => console.log("date")}
-                />
-              </div>
-              <div className="max-w-[300px] md:max-w-[400px] border-2 mb-2">
-                <Textarea placeholder="patients symptoms" />
-              </div>
-              <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
-                <Input
-                  type="text"
-                  placeholder="your conclusion"
-                  required
-                  onChange={() => console.log("hello")}
-                />
-              </div>
-              <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
-                <Input
-                  type="text"
-                  placeholder="prescription"
-                  required
-                  onChange={() => console.log("hello")}
-                />
-              </div>
-              <div
-                className="max-w-[100px] border-2 font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setisAddingHistory(true);
-                }}
-              >
-                <ClickForward label="save" />
-              </div>
-            </form>
-          </>
-        )}
-        {/* Log patients data after logging them */}
-        <HealthHistory patientHistory={patientHistory} user={user} />
-      </>
-      {/* )} */}
+      {isUserLogged && (
+        <>
+          <div
+            className="max-w-[100px] border-2 font-medium"
+            onClick={(e) => {
+              e.preventDefault();
+              setisAddingHistory(isAddingHistory ? false : true);
+            }}
+          >
+            <ClickForward label={isAddingHistory ? "cancel" : "update"} />
+          </div>
+          {isAddingHistory && (
+            <>
+              {/* Adding to pattients */}
+              <form className=" border-2 border-green-500">
+                <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
+                  <Input
+                    type="text"
+                    placeholder="facility details"
+                    required
+                    onChange={() => console.log("facility")}
+                  />
+                </div>
+                <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
+                  <Input
+                    type="text"
+                    placeholder="date: dd/mm/yyyy"
+                    required
+                    onChange={() => console.log("date")}
+                  />
+                </div>
+                <div className="max-w-[300px] md:max-w-[400px] border-2 mb-2">
+                  <Textarea placeholder="patients symptoms" />
+                </div>
+                <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
+                  <Input
+                    type="text"
+                    placeholder="your conclusion"
+                    required
+                    onChange={() => console.log("hello")}
+                  />
+                </div>
+                <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
+                  <Input
+                    type="text"
+                    placeholder="prescription"
+                    required
+                    onChange={() => console.log("hello")}
+                  />
+                </div>
+                <div
+                  className="max-w-[100px] border-2 font-medium"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setisAddingHistory(false);
+                    setIsUserLogged(false);
+                  }}
+                >
+                  <ClickForward label="save" />
+                </div>
+              </form>
+            </>
+          )}
+          {/* Log patients data after logging them */}
+          <HealthHistory patientHistory={patientHistory} user={user} />
+        </>
+      )}
     </div>
   );
 }
