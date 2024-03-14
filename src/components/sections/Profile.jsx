@@ -11,13 +11,19 @@ function Profile({ user }) {
     <div className="py-8 border-2 border-red-400 flex flex-col md:flex-row md:gap-4 md:w-7/8 mx-auto mb-16 mt-20 ">
       <div className="w-32 md:w-1/4 md:h-1/2 mx-auto min-[600px]:mx-0 mb-4 relative">
         <ImageContainer imageurl="/person.svg" />
+
         <img
           src="/pen_edit.svg"
           className="w-4  mx-auto min-[600px]:mx-0 mb-4 absolute top-0 right-0 "
           onClick={() => setIsEditing(true)}
         />
       </div>
-      <form action="" className="flex flex-col gap-2 md:w-full">
+      <form action="" className="flex flex-col gap-2 md:w-full relative">
+        {isEditing && (
+          <button className="absolute bottom-0 left-0 btn btn-success btn-sm">
+            Save
+          </button>
+        )}
         <label className="flex flex-col ">
           <span className="text-black font-medium ">Name:</span>
           <Input
@@ -57,7 +63,7 @@ function Profile({ user }) {
             }}
           />
         </label>
-        <label className="flex flex-col ">
+        <label className="flex flex-col mb-10">
           <span className="text-black font-medium ">Gender:</span>
           <Input
             placeholder="Enter your phone number"
