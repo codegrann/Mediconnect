@@ -49,12 +49,13 @@ function App() {
     },
   ];
   const [patientHistory, setPatientHistory] = useState(initialpatientHistory);
+  const [isLogged, setIslogged] = useState(false);
 
   return (
     <UsersContext.Provider value={user}>
       <div>
         <BrowserRouter>
-          <Navbar />
+          <Navbar isLogged={isLogged} setIslogged={setIslogged} />
           <div className="px-6">
             <Routes>
               <Route exact path="/" element={<Home />} />
@@ -68,7 +69,10 @@ function App() {
                 }
               />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<SignIn />} />
+              <Route
+                path="/signin"
+                element={<SignIn setIslogged={isLogged} />}
+              />
               <Route
                 path="/client/dashboard"
                 element={

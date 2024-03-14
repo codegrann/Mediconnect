@@ -7,7 +7,7 @@ import Logo from "./Minor/Logo";
 import "../App.css";
 import ImageContainer from "./Minor/ImageContainer";
 
-const Navbar = () => {
+const Navbar = ({ isLogged, setIslogged }) => {
   const [showNavbar, setShowNavbar] = useState(false);
   const navigate = useNavigate();
 
@@ -62,35 +62,46 @@ const Navbar = () => {
               </a>
               {/* <Link to="/#contactus">Contact</Link> */}
             </li>
-            <li
-              id="getstarted"
-              className="btn btn-success "
-              onClick={() => {
-                navigate("/signup");
-              }}
-            >
-              <span className="font-semibold">Get started</span>
-            </li>
-            <li
-              className=""
-              onClick={() => {
-                navigate("/client/dashboard");
-              }}
-            >
-              <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
-                <ImageContainer imageurl="/person.png" />
-              </div>
-            </li>
-            <li
-              className=""
-              onClick={() => {
-                navigate("/practitioner/dashboard");
-              }}
-            >
-              <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
-                <ImageContainer imageurl="/person.png" />
-              </div>
-            </li>
+            {isLogged ? (
+              <>
+                <li
+                  className=""
+                  onClick={() => {
+                    navigate("/client/dashboard");
+                  }}
+                >
+                  <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                    <ImageContainer imageurl="/person.png" />
+                  </div>
+                </li>
+                <li
+                  className=""
+                  onClick={() => {
+                    navigate("/practitioner/dashboard");
+                  }}
+                >
+                  <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                    <ImageContainer imageurl="/person.png" />
+                  </div>
+                </li>
+                <button
+                  className="btn btn-error btn-sm"
+                  onClick={() => setIslogged(false)}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <li
+                id="getstarted"
+                className="btn btn-success "
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
+                <span className="font-semibold">Get started</span>
+              </li>
+            )}
           </ul>
         </div>
       </div>

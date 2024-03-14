@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = () => {
+const SignIn = ({ setIsLogged }) => {
   const [identity, setIdentity] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -10,6 +10,8 @@ const SignIn = () => {
   const handleSignin = (e) => {
     e.preventDefault();
     console.log(identity, password);
+    setIsLogged(true);
+    navigate("/");
   };
 
   return (
@@ -77,7 +79,10 @@ const SignIn = () => {
           >
             Sign Up
           </div>
-          <button className="flex justify-center items-center px-[20px] py-[5px]  text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer">
+          <button
+            className="flex justify-center items-center px-[20px] py-[5px]  text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer"
+            onClick={() => setIsLogged(true)}
+          >
             Sign In
           </button>
         </div>
