@@ -71,7 +71,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route
                 path="/signin"
-                element={<SignIn setIslogged={isLogged} />}
+                element={<SignIn setIslogged={setIslogged} />}
               />
               <Route
                 path="/client/dashboard"
