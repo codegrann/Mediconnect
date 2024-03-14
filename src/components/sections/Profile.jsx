@@ -7,6 +7,10 @@ function Profile({ user }) {
   const { patientName, age, gender, email, phone } = user;
   const [userEmail, setUserEmail] = useState(email);
   const [userPhone, setUserPhone] = useState(phone);
+
+  const handleEdit = () => {
+    setIsEditing(false);
+  };
   return (
     <div className="py-8 border-2 border-red-400 flex flex-col md:flex-row md:gap-4 md:w-7/8 mx-auto mb-16 mt-20 ">
       <div className="w-32 md:w-1/4 md:h-1/2 mx-auto min-[600px]:mx-0 mb-4 relative">
@@ -20,7 +24,10 @@ function Profile({ user }) {
       </div>
       <form action="" className="flex flex-col gap-2 md:w-full relative">
         {isEditing && (
-          <button className="absolute bottom-0 left-0 btn btn-success btn-sm">
+          <button
+            className="absolute bottom-0 left-0 btn btn-success btn-sm"
+            onClick={handleEdit}
+          >
             Save
           </button>
         )}
