@@ -18,6 +18,8 @@ function App() {
     patientName: "Patient 1",
     age: 46,
     gender: "male",
+    email: "sample@gmail.com",
+    phone: "9876543210",
   });
   const initialpatientHistory = [
     {

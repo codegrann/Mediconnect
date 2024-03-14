@@ -5,7 +5,7 @@ import HealthHistory from "../components/sections/HealthHistory";
 function ClientDashboard({ patientHistory, user }) {
   return (
     <div>
-      <Profile />
+      <Profile user={user} />
       <HealthHistory patientHistory={patientHistory} user={user} />
     </div>
   );

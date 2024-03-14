@@ -3,7 +3,7 @@ import React from "react";
 import HealthHistoryCard from "../Minor/HealthHistoryCard";
 
 function HealthHistory({ patientHistory, user }) {
-  const { patientName, age, gender } = user;
+  const { patientName, age, gender, email, phone } = user;
   return (
     <div>
       <div className="px-2 border-2 border-gray-400 md:w-1/2 md:mx-auto mb-4">
