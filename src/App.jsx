@@ -21,6 +21,13 @@ function App() {
     email: "sample@gmail.com",
     phone: "9876543210",
   });
+  const [practioner, setPractioner] = useState({
+    patientName: "Provider 3",
+    age: 40,
+    gender: "male",
+    email: "sample123@gmail.com",
+    phone: "67854029384",
+  });
   const initialpatientHistory = [
     {
       providerName: "Provider 1",
@@ -73,7 +80,13 @@ function App() {
               />
               <Route
                 path="/practitioner/dashboard"
-                element={<DoctorDashBoard />}
+                element={
+                  <DoctorDashBoard
+                    user={user}
+                    practioner={practioner}
+                    patientHistory={patientHistory}
+                  />
+                }
               />
               <Route path="*" element={<PageNotFound />} />
             </Routes>

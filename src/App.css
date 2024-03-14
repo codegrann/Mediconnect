@@ -24,6 +24,7 @@ body {
   background-color: #a4d8a4;
   position: sticky;
   top: 0;
+  z-index: 50;
   /* border-bottom: 1px solid gray; */
   /* margin-bottom: 2rem; */
 }

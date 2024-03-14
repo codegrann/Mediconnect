@@ -6,14 +6,14 @@ import Input from "../components/Minor/Inputs/Input";
 import ClickForward from "../components/Minor/Actions/ClickForward";
 import Textarea from "../components/Minor/Inputs/Textarea";
 
-function DoctorDashBoard({ patientHistory, user }) {
+function DoctorDashBoard({ patientHistory, user, practioner }) {
   const [isAddingHistory, setisAddingHistory] = useState(false);
   const [isLoggingUser, setIsLoggingUser] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [currentPatient, setCurrentPatient] = useState(null);
   return (
     <div>
-      <Profile />
+      <Profile user={practioner} />
       <div className="border-2 border-red-500 flex flex-col items-center">
         <h3 className="text-black font-medium mb-4 md:text-xl md:mb-10">
           Manage Patient data
