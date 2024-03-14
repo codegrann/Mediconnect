@@ -12,7 +12,10 @@ function Profile() {
       <form action="" className="flex flex-col gap-2 md:w-full">
         <label className="flex flex-col ">
           <span className="text-black font-medium ">Name:</span>
-          <Input placeholder="Enter your full name" disabled />
+          <Input
+            placeholder="Enter your full name"
+            attributes={{ disabled: true }}
+          />
         </label>
         <label className="flex flex-col ">
           <span className="text-black font-medium ">Email:</span>

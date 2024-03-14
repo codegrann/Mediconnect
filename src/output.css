@@ -1027,6 +1027,16 @@ html {
 }
 
 @media (hover: hover) {
+  .btm-nav > *.disabled:hover,
+      .btm-nav > *[disabled]:hover {
+    pointer-events: none;
+    --tw-border-opacity: 0;
+    background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+    --tw-bg-opacity: 0.1;
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+    --tw-text-opacity: 0.2;
+  }
+
   .btn:hover {
     --tw-border-opacity: 1;
     border-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-border-opacity)));
@@ -1372,6 +1382,16 @@ html {
   border-top-width: 2px;
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+}
+
+.btm-nav > *.disabled,
+    .btm-nav > *[disabled] {
+  pointer-events: none;
+  --tw-border-opacity: 0;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  --tw-bg-opacity: 0.1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  --tw-text-opacity: 0.2;
 }
 
 .btm-nav > * .label {
@@ -2146,23 +2166,14 @@ html {
   display: grid;
 }
 
-.size-4 {
-  width: 1rem;
-  height: 1rem;
-}
-
 .size-10 {
   width: 2.5rem;
   height: 2.5rem;
 }
 
-.size-8 {
-  width: 2rem;
-  height: 2rem;
-}
-
-.h-12 {
-  height: 3rem;
+.size-4 {
+  width: 1rem;
+  height: 1rem;
 }
 
 .h-\[600px\] {
@@ -2175,10 +2186,6 @@ html {
 
 .h-full {
   height: 100%;
-}
-
-.w-12 {
-  width: 3rem;
 }
 
 .w-24 {
@@ -2337,11 +2344,6 @@ html {
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
-.border-gray-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity));
-}
-
 .bg-\[\#10Bb32\] {
   --tw-bg-opacity: 1;
   background-color: rgb(16 187 50 / var(--tw-bg-opacity));
@@ -2414,6 +2416,11 @@ html {
   padding: 0.5rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2452,11 +2459,6 @@ html {
 .py-\[5px\] {
   padding-top: 5px;
   padding-bottom: 5px;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .pb-10 {
@@ -2682,6 +2684,10 @@ html {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.disabled\:bg-none:disabled {
+  background-image: none;
 }
 
 @media not all and (min-width: 768px) {
