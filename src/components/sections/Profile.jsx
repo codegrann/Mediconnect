@@ -6,10 +6,10 @@ function Profile({ user }) {
   const [isEditing, setIsEditing] = useState(false);
   const { patientName, age, gender, email, phone } = user;
   return (
-    <div className="py-8 flex flex-col md:flex-row md:gap-4 md:w-7/8 mx-auto mb-16 mt-20 relative">
+    <div className="py-8 border-2 border-red-400 flex flex-col md:flex-row md:gap-4 md:w-7/8 mx-auto mb-16 mt-20 relative">
       <img
         src="/pen_edit.svg"
-        className="w-6 md:w-1/4 md:h-1/2 mx-auto min-[600px]:mx-0 mb-4"
+        className="w-6  mx-auto min-[600px]:mx-0 mb-4 absolute top-0 right-0 md:left-0 md:top-40"
       />
       <div className="w-32 md:w-1/4 md:h-1/2 mx-auto min-[600px]:mx-0 mb-4">
         <ImageContainer imageurl="/person.svg" />
