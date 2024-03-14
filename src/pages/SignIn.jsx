@@ -18,7 +18,7 @@ const SignIn = ({ setIsLogged }) => {
   return (
     <>
       <form
-        onSubmit={handleSignin}
+        // onSubmit={handleSignin}
         className="flex flex-col min-[500px]:w-7/8  m-auto my-[80px] bg-white pb-[30px] "
       >
         <div className="flex flex-col items-center gap-2 w-full mt-[30px]  ">
@@ -82,10 +82,11 @@ const SignIn = ({ setIsLogged }) => {
           </div>
           <button
             className="flex justify-center items-center px-[20px] py-[5px]  text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer"
-            // onClick={(e) => {
-            //   e.preventDefault();
-            //   // setIsLogged(true);
-            // }}
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsLogged(true);
+            }}
           >
             Sign In
           </button>
