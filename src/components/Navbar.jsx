@@ -7,7 +7,7 @@ import Logo from "./Minor/Logo";
 import "../App.css";
 import ImageContainer from "./Minor/ImageContainer";
 
-const Navbar = ({ isLogged, setIslogged }) => {
+const Navbar = ({ isLogged, setIsLogged }) => {
   const [showNavbar, setShowNavbar] = useState(false);
   const navigate = useNavigate();
 
@@ -86,7 +86,7 @@ const Navbar = ({ isLogged, setIslogged }) => {
                 </li>
                 <button
                   className="btn btn-error btn-sm"
-                  onClick={() => setIslogged(false)}
+                  onClick={() => setIsLogged(false)}
                 >
                   Logout
                 </button>

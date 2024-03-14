@@ -83,10 +83,10 @@ const SignIn = ({ setIsLogged }) => {
           <button
             className="flex justify-center items-center px-[20px] py-[5px]  text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer"
             type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              setIsLogged(true);
-            }}
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   setIsLogged(true);
+            // }}
           >
             Sign In
           </button>
