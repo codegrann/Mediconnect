@@ -10,8 +10,9 @@ const SignIn = ({ setIsLogged }) => {
   const handleSignin = (e) => {
     e.preventDefault();
     console.log(identity, password);
+
     setIsLogged(true);
-    navigate("/");
+    vigate("/");
   };
 
   return (
