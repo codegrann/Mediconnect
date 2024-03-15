@@ -15,11 +15,11 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const [user, setUser] = useState({
-    patientName: "Patient 1",
-    age: 46,
-    gender: "male",
-    email: "sample@gmail.com",
-    phone: "9876543210",
+    patientName: "",
+    age: "",
+    gender: "",
+    email: "",
+    phone: "",
   });
 
   const users = [
@@ -103,26 +103,30 @@ function App() {
                   />
                 }
               />
-              <Route
-                path="/client/dashboard"
-                element={
-                  <ClientDashboard
-                    patientHistory={patientHistory}
-                    user={user}
-                  />
-                }
-              />
-              <Route
-                path="/practitioner/dashboard"
-                element={
-                  <DoctorDashBoard
-                    user={user}
-                    practioner={practioner}
-                    patientHistory={patientHistory}
-                    setPatientHistory={setPatientHistory}
-                  />
-                }
-              />
+              {isLogged && (
+                <Route
+                  path="/client/dashboard"
+                  element={
+                    <ClientDashboard
+                      patientHistory={patientHistory}
+                      user={user}
+                    />
+                  }
+                />
+              )}
+              {isLogged && (
+                <Route
+                  path="/practitioner/dashboard"
+                  element={
+                    <DoctorDashBoard
+                      user={user}
+                      practioner={practioner}
+                      patientHistory={patientHistory}
+                      setPatientHistory={setPatientHistory}
+                    />
+                  }
+                />
+              )}
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </div>
