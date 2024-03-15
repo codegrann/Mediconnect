@@ -10,6 +10,7 @@ function DoctorDashBoard({
   patientHistory,
   setPatientHistory,
   user,
+  setUser,
   practioner,
 }) {
   const [isAddingHistory, setisAddingHistory] = useState(false);
@@ -56,7 +57,7 @@ function DoctorDashBoard({
 
   return (
     <div>
-      <Profile user={user} />
+      <Profile user={user} setUser={setUser} />
       <div className="flex flex-col items-center">
         <h3 className="text-black font-medium mb-4 md:text-xl md:mb-10">
           Manage Patient data

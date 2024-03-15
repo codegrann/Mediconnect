@@ -83,15 +83,16 @@ function App() {
           <div className="px-6">
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route
+              {/* <Route
                 path="/doctorprofile"
                 element={
                   <DoctorDashBoard
                     patientHistory={patientHistory}
                     user={user}
+                    setUser={setUser}
                   />
                 }
-              />
+              /> */}
               <Route path="/signup" element={<SignUp />} />
               <Route
                 path="/signin"
@@ -112,6 +113,7 @@ function App() {
                     <ClientDashboard
                       patientHistory={patientHistory}
                       user={user}
+                      setUser={setUser}
                     />
                   }
                 />
@@ -122,6 +124,7 @@ function App() {
                   element={
                     <DoctorDashBoard
                       user={user}
+                      setUser={setUser}
                       practioner={practioner}
                       patientHistory={patientHistory}
                       setPatientHistory={setPatientHistory}

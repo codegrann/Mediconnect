@@ -3,13 +3,14 @@ import Input from "../Minor/Inputs/Input";
 import Input1 from "../Minor/Inputs/Input1";
 import ImageContainer from "../Minor/ImageContainer";
 
-function Profile({ user }) {
+function Profile({ user, setUser }) {
   const [isEditing, setIsEditing] = useState(false);
   const { patientName, age, gender, email, phone } = user;
   const [userEmail, setUserEmail] = useState(email);
   const [userPhone, setUserPhone] = useState(phone);
 
   const handleEdit = () => {
+    setUser({ ...user, email: userEmail, phone: userPhone });
     setIsEditing(false);
   };
   return (
