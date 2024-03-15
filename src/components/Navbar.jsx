@@ -7,7 +7,7 @@ import Logo from "./Minor/Logo";
 import "../App.css";
 import ImageContainer from "./Minor/ImageContainer";
 
-const Navbar = ({ isLogged, setIsLogged }) => {
+const Navbar = ({ isLogged, setIsLogged, role }) => {
   const [showNavbar, setShowNavbar] = useState(false);
   const navigate = useNavigate();
 
@@ -64,26 +64,31 @@ const Navbar = ({ isLogged, setIsLogged }) => {
             </li>
             {isLogged ? (
               <>
-                <li
-                  className=""
-                  onClick={() => {
-                    navigate("/client/dashboard");
-                  }}
-                >
-                  <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
-                    <ImageContainer imageurl="/person.png" />
-                  </div>
-                </li>
-                <li
-                  className=""
-                  onClick={() => {
-                    navigate("/practitioner/dashboard");
-                  }}
-                >
-                  <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
-                    <ImageContainer imageurl="/person.png" />
-                  </div>
-                </li>
+                {role == "PT" && (
+                  <li
+                    className=""
+                    onClick={() => {
+                      navigate("/client/dashboard");
+                    }}
+                  >
+                    <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                      <ImageContainer imageurl="/person.png" />
+                    </div>
+                  </li>
+                )}
+                {role == "DR1" ||
+                  (role == "DR2" && (
+                    <li
+                      className=""
+                      onClick={() => {
+                        navigate("/practitioner/dashboard");
+                      }}
+                    >
+                      <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                        <ImageContainer imageurl="/person.png" />
+                      </div>
+                    </li>
+                  ))}
                 <button
                   className="btn btn-error btn-sm"
                   onClick={() => {
