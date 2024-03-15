@@ -6,11 +6,37 @@ import Input from "../components/Minor/Inputs/Input";
 import ClickForward from "../components/Minor/Actions/ClickForward";
 import Textarea from "../components/Minor/Inputs/Textarea";
 
-function DoctorDashBoard({ patientHistory, user, practioner }) {
+function DoctorDashBoard({
+  patientHistory,
+  setPatientHistory,
+  user,
+  practioner,
+}) {
   const [isAddingHistory, setisAddingHistory] = useState(false);
   const [isLoggingUser, setIsLoggingUser] = useState(false);
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [currentPatient, setCurrentPatient] = useState(null);
+
+  const [facilityDetails, setFacilityDetails] = useState("");
+  const [date, setDate] = useState("");
+  const [symptoms, setSymptoms] = useState("");
+  const [conclusion, setConclusion] = useState("");
+  const [prescription, setPrescription] = useState("");
+  const [providerName, setProviderName] = useState("");
+  const [regNo, setRegNo] = useState("");
+
+  const handleSaveHistory = (e) => {
+    e.preventDefault();
+    // resetting form fields
+    setFacilityDetails("");
+    setDate("");
+    setSymptoms("");
+    setConclusion("");
+    setPrescription("");
+    setProviderName("");
+    setRegNo("");
+  };
+
   return (
     <div>
       <Profile user={practioner} />
@@ -78,6 +104,9 @@ function DoctorDashBoard({ patientHistory, user, practioner }) {
                   <Input
                     type="text"
                     placeholder="facility details"
+                    attributes={{
+                      value: "",
+                    }}
                     required
                     onChange={() => console.log("facility")}
                   />
@@ -105,6 +134,22 @@ function DoctorDashBoard({ patientHistory, user, practioner }) {
                   <Input
                     type="text"
                     placeholder="prescription"
+                    required
+                    onChange={() => console.log("hello")}
+                  />
+                </div>
+                <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
+                  <Input
+                    type="text"
+                    placeholder="provider nme"
+                    required
+                    onChange={() => console.log("hello")}
+                  />
+                </div>
+                <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
+                  <Input
+                    type="text"
+                    placeholder="reg no."
                     required
                     onChange={() => console.log("hello")}
                   />

@@ -89,6 +89,7 @@ function App() {
                     user={user}
                     practioner={practioner}
                     patientHistory={patientHistory}
+                    setPatientHistory={setPatientHistory}
                   />
                 }
               />
