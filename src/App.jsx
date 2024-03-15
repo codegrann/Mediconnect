@@ -39,10 +39,10 @@ function App() {
     },
     {
       providerName: "Dr2",
-      age: 40,
-      gender: "male",
-      email: "sample123@gmail.com",
-      phone: "67854029384",
+      age: 57,
+      gender: "female",
+      email: "sample456@gmail.com",
+      phone: "85402938467",
     },
   ];
   const [practioner, setPractioner] = useState({
@@ -95,7 +95,13 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route
                 path="/signin"
-                element={<SignIn setIsLogged={setIsLogged} />}
+                element={
+                  <SignIn
+                    setIsLogged={setIsLogged}
+                    users={users}
+                    setUser={setUser}
+                  />
+                }
               />
               <Route
                 path="/client/dashboard"

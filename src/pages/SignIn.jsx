@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = ({ setIsLogged }) => {
+const SignIn = ({ setIsLogged, users, setUser }) => {
   const [identity, setIdentity] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -10,7 +10,21 @@ const SignIn = ({ setIsLogged }) => {
   const handleSignin = (e) => {
     e.preventDefault();
     console.log(identity, password);
+    const selectedRole = prompt(
+      "Enter PT for patient or DR1 for doctor1 or DR2 for doctor2"
+    ).toUpperCase();
 
+    console.log(selectedRole);
+    if (selectedRole === "PT") {
+      setUser(users[0]);
+    } else if (selectedRole === "DR1") {
+      setUser(users[1]);
+    } else if (selectedRole === "DR2") {
+      setUser(users[2]);
+    } else {
+      alert("Invalid user");
+      return;
+    }
     setIsLogged(true);
     navigate("/");
   };
