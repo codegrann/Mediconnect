@@ -46,7 +46,7 @@ function App() {
     },
   ];
   const [practioner, setPractioner] = useState({
-    providerName: "Dr1",
+    patientName: "Dr1",
     age: 40,
     gender: "male",
     email: "sample123@gmail.com",

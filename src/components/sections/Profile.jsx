@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "../Minor/Inputs/Input";
+import Input1 from "../Minor/Inputs/Input1";
 import ImageContainer from "../Minor/ImageContainer";
 
 function Profile({ user }) {
@@ -33,51 +34,40 @@ function Profile({ user }) {
         )}
         <label className="flex flex-col ">
           <span className="text-black font-medium ">Name:</span>
-          <Input
+          <Input1
             placeholder="Enter your full name"
-            attributes={{ disabled: true, value: patientName }}
+            disabled={true}
+            value={patientName}
           />
         </label>
         <label className="flex flex-col ">
           <span className="text-black font-medium ">Email:</span>
-          <Input
+          <Input1
             placeholder="Enter your email"
-            attributes={{
-              disabled: isEditing ? false : true,
-              value: userEmail,
-            }}
+            disabled={isEditing ? false : true}
+            value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
           />
         </label>
         <label className="flex flex-col ">
           <span className="text-black font-medium ">Phone Number:</span>
-          <Input
+          <Input1
             placeholder="Enter your phone number"
-            attributes={{
-              disabled: isEditing ? false : true,
-              value: userPhone,
-            }}
+            disabled={isEditing ? false : true}
+            value={userPhone}
             onChange={(e) => setUserPhone(e.target.value)}
           />
         </label>
         <label className="flex flex-col ">
           <span className="text-black font-medium ">Age:</span>
-          <Input
-            placeholder="Enter your dob"
-            attributes={{
-              disabled: true,
-              value: age,
-            }}
-          />
+          <Input1 placeholder="Enter your dob" disabled={true} value={age} />
         </label>
         <label className="flex flex-col mb-10">
           <span className="text-black font-medium ">Gender:</span>
-          <Input
+          <Input1
             placeholder="Enter your phone number"
-            attributes={{
-              disabled: true,
-              value: gender,
-            }}
+            value={gender}
+            disabled={true}
           />
         </label>
       </form>
