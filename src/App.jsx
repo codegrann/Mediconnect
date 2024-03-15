@@ -21,8 +21,32 @@ function App() {
     email: "sample@gmail.com",
     phone: "9876543210",
   });
+
+  const users = [
+    {
+      patientName: "Patient 1",
+      age: 46,
+      gender: "male",
+      email: "sample@gmail.com",
+      phone: "9876543210",
+    },
+    {
+      providerName: "Dr1",
+      age: 40,
+      gender: "male",
+      email: "sample123@gmail.com",
+      phone: "67854029384",
+    },
+    {
+      providerName: "Dr2",
+      age: 40,
+      gender: "male",
+      email: "sample123@gmail.com",
+      phone: "67854029384",
+    },
+  ];
   const [practioner, setPractioner] = useState({
-    providerName: "Provider 3",
+    providerName: "Dr1",
     age: 40,
     gender: "male",
     email: "sample123@gmail.com",
