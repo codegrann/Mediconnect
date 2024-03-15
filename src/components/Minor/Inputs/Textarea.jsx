@@ -1,6 +1,6 @@
 import React from "react";
 
-function Textarea({ placeholder, value, ...attributes }) {
+function Textarea({ placeholder, value, onChange, ...attributes }) {
   return (
     <>
       <textarea
@@ -8,6 +8,7 @@ function Textarea({ placeholder, value, ...attributes }) {
         rows="6"
         placeholder={placeholder}
         value={value}
+        onChange={onChange}
       />
     </>
   );

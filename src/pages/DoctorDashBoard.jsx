@@ -138,9 +138,7 @@ function DoctorDashBoard({
                 <div className="max-w-[300px] md:max-w-[400px] border-2 mb-2">
                   <Textarea
                     placeholder="patients symptoms"
-                    attributes={{
-                      value: { symptoms },
-                    }}
+                    value={symptoms}
                     required
                     onChange={(e) => setSymptoms(e.target.value)}
                   />
