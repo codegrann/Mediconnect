@@ -17,6 +17,8 @@ function DoctorDashBoard({
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [currentPatient, setCurrentPatient] = useState(null);
 
+  // const {providerName, gender, email, phone} = practioner;
+
   const [facilityDetails, setFacilityDetails] = useState("");
   const [date, setDate] = useState("");
   const [symptoms, setSymptoms] = useState("");
