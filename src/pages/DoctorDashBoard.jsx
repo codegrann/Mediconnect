@@ -25,13 +25,26 @@ function DoctorDashBoard({
   const [providerName, setProviderName] = useState("");
   const [regNo, setRegNo] = useState("");
 
+  const newHistory = {
+    providerName: providerName,
+    regno: regNo,
+    facility: facilityDetails,
+    date: date,
+    symptoms: symptoms,
+    diagnosis: diagnosis,
+    treatment: prescription,
+  };
+
   const handleSaveHistory = (e) => {
     e.preventDefault();
+    setisAddingHistory(false);
+    setIsUserLogged(false);
+    console.log(newHistory);
     // resetting form fields
     setFacilityDetails("");
     setDate("");
     setSymptoms("");
-    setConclusion("");
+    setDiagnosis("");
     setPrescription("");
     setProviderName("");
     setRegNo("");
@@ -123,7 +136,14 @@ function DoctorDashBoard({
                   />
                 </div>
                 <div className="max-w-[300px] md:max-w-[400px] border-2 mb-2">
-                  <Textarea placeholder="patients symptoms" />
+                  <Textarea
+                    placeholder="patients symptoms"
+                    attributes={{
+                      value: { symptoms },
+                    }}
+                    required
+                    onChange={(e) => setSymptoms(e.target.value)}
+                  />
                 </div>
                 <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
                   <Input
@@ -171,11 +191,7 @@ function DoctorDashBoard({
                 </div>
                 <div
                   className="max-w-[100px] border-2 font-medium"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setisAddingHistory(false);
-                    setIsUserLogged(false);
-                  }}
+                  onClick={handleSaveHistory}
                 >
                   <ClickForward label="save" />
                 </div>
