@@ -76,19 +76,30 @@ const Navbar = ({ isLogged, setIsLogged, role }) => {
                     </div>
                   </li>
                 )}
-                {role == "DR1" ||
-                  (role == "DR2" && (
-                    <li
-                      className=""
-                      onClick={() => {
-                        navigate("/practitioner/dashboard");
-                      }}
-                    >
-                      <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
-                        <ImageContainer imageurl="/person.png" />
-                      </div>
-                    </li>
-                  ))}
+                {role == "DR1" && (
+                  <li
+                    className=""
+                    onClick={() => {
+                      navigate("/practitioner/dashboard");
+                    }}
+                  >
+                    <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                      <ImageContainer imageurl="/person.png" />
+                    </div>
+                  </li>
+                )}
+                {role == "DR2" && (
+                  <li
+                    className=""
+                    onClick={() => {
+                      navigate("/practitioner/dashboard");
+                    }}
+                  >
+                    <div className="flex items-center justify-center p-2 rounded-full border-2 border-gray-400 cursor-pointer size-10">
+                      <ImageContainer imageurl="/person.png" />
+                    </div>
+                  </li>
+                )}
                 <button
                   className="btn btn-error btn-sm"
                   onClick={() => {
