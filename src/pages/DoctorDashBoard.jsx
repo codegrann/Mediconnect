@@ -40,6 +40,8 @@ function DoctorDashBoard({
     setisAddingHistory(false);
     setIsUserLogged(false);
     console.log(newHistory);
+
+    setPatientHistory([...patientHistory, newHistory]);
     // resetting form fields
     setFacilityDetails("");
     setDate("");
