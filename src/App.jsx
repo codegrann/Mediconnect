@@ -31,14 +31,14 @@ function App() {
       phone: "9876543210",
     },
     {
-      providerName: "Dr1",
+      patientName: "Dr1",
       age: 40,
       gender: "male",
       email: "sample123@gmail.com",
       phone: "67854029384",
     },
     {
-      providerName: "Dr2",
+      patientName: "Dr2",
       age: 57,
       gender: "female",
       email: "sample456@gmail.com",

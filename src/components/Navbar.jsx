@@ -86,7 +86,10 @@ const Navbar = ({ isLogged, setIsLogged }) => {
                 </li>
                 <button
                   className="btn btn-error btn-sm"
-                  onClick={() => setIsLogged(false)}
+                  onClick={() => {
+                    setIsLogged(false);
+                    navigate("/");
+                  }}
                 >
                   Logout
                 </button>
