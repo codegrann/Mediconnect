@@ -44,7 +44,7 @@ function Profile({ user }) {
             placeholder="Enter your email"
             attributes={{
               disabled: isEditing ? false : true,
-              value: { userEmail },
+              value: userEmail,
             }}
             onChange={(e) => setUserEmail(e.target.value)}
           />
@@ -55,7 +55,7 @@ function Profile({ user }) {
             placeholder="Enter your phone number"
             attributes={{
               disabled: isEditing ? false : true,
-              value: { userPhone },
+              value: userPhone,
             }}
             onChange={(e) => setUserPhone(e.target.value)}
           />
@@ -66,7 +66,7 @@ function Profile({ user }) {
             placeholder="Enter your dob"
             attributes={{
               disabled: true,
-              value: { age },
+              value: age,
             }}
           />
         </label>
@@ -76,7 +76,7 @@ function Profile({ user }) {
             placeholder="Enter your phone number"
             attributes={{
               disabled: true,
-              value: { gender },
+              value: gender,
             }}
           />
         </label>

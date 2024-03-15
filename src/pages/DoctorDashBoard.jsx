@@ -56,7 +56,7 @@ function DoctorDashBoard({
 
   return (
     <div>
-      <Profile user={practioner} />
+      <Profile user={user} />
       <div className="flex flex-col items-center">
         <h3 className="text-black font-medium mb-4 md:text-xl md:mb-10">
           Manage Patient data
