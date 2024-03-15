@@ -20,7 +20,7 @@ function DoctorDashBoard({
   const [facilityDetails, setFacilityDetails] = useState("");
   const [date, setDate] = useState("");
   const [symptoms, setSymptoms] = useState("");
-  const [conclusion, setConclusion] = useState("");
+  const [diagnosis, setDiagnosis] = useState("");
   const [prescription, setPrescription] = useState("");
   const [providerName, setProviderName] = useState("");
   const [regNo, setRegNo] = useState("");
@@ -105,18 +105,21 @@ function DoctorDashBoard({
                     type="text"
                     placeholder="facility details"
                     attributes={{
-                      value: "",
+                      value: { facilityDetails },
                     }}
                     required
-                    onChange={() => console.log("facility")}
+                    onChange={(e) => setFacilityDetails(e.target.value)}
                   />
                 </div>
                 <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
                   <Input
                     type="text"
                     placeholder="date: dd/mm/yyyy"
+                    attributes={{
+                      value: { date },
+                    }}
                     required
-                    onChange={() => console.log("date")}
+                    onChange={(e) => setDate(e.target.value)}
                   />
                 </div>
                 <div className="max-w-[300px] md:max-w-[400px] border-2 mb-2">
@@ -125,33 +128,45 @@ function DoctorDashBoard({
                 <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
                   <Input
                     type="text"
-                    placeholder="your conclusion"
+                    placeholder="your diagnosis"
+                    attributes={{
+                      value: { diagnosis },
+                    }}
                     required
-                    onChange={() => console.log("hello")}
+                    onChange={(e) => setDiagnosis(e.target.value)}
                   />
                 </div>
                 <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
                   <Input
                     type="text"
                     placeholder="prescription"
+                    attributes={{
+                      value: { prescription },
+                    }}
                     required
-                    onChange={() => console.log("hello")}
+                    onChange={(e) => setPrescription(e.target.value)}
                   />
                 </div>
                 <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
                   <Input
                     type="text"
-                    placeholder="provider nme"
+                    placeholder="provider name"
+                    attributes={{
+                      value: { providerName },
+                    }}
                     required
-                    onChange={() => console.log("hello")}
+                    onChange={(e) => setProviderName(e.target.value)}
                   />
                 </div>
                 <div className="max-w-[300px] md:max-w-[400px] mb-2 ">
                   <Input
                     type="text"
                     placeholder="reg no."
+                    attributes={{
+                      value: { regNo },
+                    }}
                     required
-                    onChange={() => console.log("hello")}
+                    onChange={(e) => setRegNo(e.target.value)}
                   />
                 </div>
                 <div
