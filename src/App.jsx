@@ -21,7 +21,7 @@ function App() {
     email: "",
     phone: "",
   });
-
+  const [role, setRole] = useState("");
   const users = [
     {
       patientName: "Patient 1",
@@ -79,7 +79,7 @@ function App() {
     <UsersContext.Provider value={user}>
       <div>
         <BrowserRouter>
-          <Navbar isLogged={isLogged} setIsLogged={setIsLogged} />
+          <Navbar isLogged={isLogged} setIsLogged={setIsLogged} role={role} />
           <div className="px-6">
             <Routes>
               <Route exact path="/" element={<Home />} />
@@ -100,6 +100,8 @@ function App() {
                     setIsLogged={setIsLogged}
                     users={users}
                     setUser={setUser}
+                    role={role}
+                    setRole={setRole}
                   />
                 }
               />

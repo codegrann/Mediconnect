@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = ({ setIsLogged, users, setUser }) => {
+const SignIn = ({ setIsLogged, users, setUser, role, setRole }) => {
   const [identity, setIdentity] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const SignIn = ({ setIsLogged, users, setUser }) => {
     const selectedRole = prompt(
       "Enter PT for patient or DR1 for doctor1 or DR2 for doctor2"
     ).toUpperCase();
-
+    setRole(selectedRole);
     console.log(selectedRole);
     if (selectedRole === "PT") {
       setUser(users[0]);
