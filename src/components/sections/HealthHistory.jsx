@@ -2,20 +2,21 @@ import React from "react";
 
 import HealthHistoryCard from "../Minor/HealthHistoryCard";
 
-function HealthHistory() {
+function HealthHistory({ patientHistory, user }) {
+  const { patientName, age, gender, email, phone } = user;
   return (
     <div>
-      <div className="border-2 border-gray-400 md:w-1/2 md:mx-auto mb-4">
+      <div className="px-2 border-2 border-gray-400 md:w-1/2 md:mx-auto mb-4">
         <h3 className="text-black font-medium md:text-xl">History</h3>
         <div className=" flex flex-wrap gap-4">
-          <p>John Micah Shikaku</p>
-          <p>46 yrs</p>
-          <p>Male</p>
+          <p>{patientName}</p>
+          <p>{age} yrs</p>
+          <p>{gender}</p>
         </div>
       </div>
-      <HealthHistoryCard />
-      <HealthHistoryCard />
-      <HealthHistoryCard />
+      {patientHistory.map((history, index) => (
+        <HealthHistoryCard history={history} key={index} />
+      ))}
     </div>
   );
 }

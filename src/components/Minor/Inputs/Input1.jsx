@@ -1,6 +1,13 @@
 import React from "react";
 
-function Input({ placeholder, type, onChange, ...attributes }) {
+function Input1({
+  placeholder,
+  type,
+  onChange,
+  value,
+  disabled,
+  ...attributes
+}) {
   return (
     <>
       <input
@@ -8,20 +15,12 @@ function Input({ placeholder, type, onChange, ...attributes }) {
         type={type}
         placeholder={placeholder}
         {...attributes}
+        value={value}
+        disabled={disabled}
         onChange={onChange}
       />
     </>
   );
 }
 
-export default Input;
-
-{
-  /* <input */
-}
-//   type="text"
-//   placeholder="Type here"
-//   className="input input-bordered input-success w-full max-w-xs"
-{
-  /* />; */
-}
+export default Input1;

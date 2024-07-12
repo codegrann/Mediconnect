@@ -1,28 +1,32 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import AuthDetails from "../components/auth/AuthDetails";
-
-import userIcon from "/person.png";
-import emailIcon from "/email.png";
-import passwordIcon from "/password.png";
-
-const SignIn = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+const SignIn = ({ setIsLogged, users, setUser, role, setRole }) => {
+  const [identity, setIdentity] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignin = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        console.log("login successful");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    console.log(identity, password);
+    const selectedRole = prompt(
+      "Enter PT for patient or DR1 for doctor1 or DR2 for doctor2"
+    ).toUpperCase();
+    setRole(selectedRole);
+    console.log(selectedRole);
+    if (selectedRole === "PT") {
+      setUser(users[0]);
+    } else if (selectedRole === "DR1") {
+      setUser(users[1]);
+    } else if (selectedRole === "DR2") {
+      setUser(users[2]);
+    } else {
+      alert("Invalid user");
+      return;
+    }
+    setIsLogged(true);
+    navigate("/");
   };
 
   return (
@@ -40,32 +44,38 @@ const SignIn = () => {
         <div className="mt-[35px] border-none  min-[500px]:w-3/4 md:w-[600px] min-[500px]:mx-auto flex flex-col gap-4  border-2  px-[10px]">
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md ">
             <img
-              src={emailIcon}
+              src="/person.svg"
               alt="emailicon"
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6  w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              type="text"
+              placeholder="username/email/phone"
+              value={identity}
+              onChange={(e) => setIdentity(e.target.value)}
             />
           </div>
           <div className="flex items-center m-auto w-full bg-[#9dc69d] rounded-md">
             <img
-              src={passwordIcon}
+              src="/password.svg"
               alt="passwordicon"
               className="my-0 ml-[10px] size-4"
             />
             <input
-              className="caret-red-700 py-4 bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
-              // className="w-[400px] h-[50px] bg-transparent border-none outline-none text-[#797979] text-md"
-              type="password"
+              className="caret-red-700 py-4 placeholder:text-xs md:placeholder:text-sm bg-transparent input input-sm md:py-6 w-full max-w-xs md:input-md md:max-w-xl focus:outline-none"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+            <img
+              src={showPassword ? "/eye_on.svg" : "/eye_off.svg"}
+              alt="passtoggler"
+              className="my-0 mr-4 size-4"
+              onClick={() => {
+                setShowPassword(!showPassword);
+              }}
             />
           </div>
         </div>
@@ -86,15 +96,16 @@ const SignIn = () => {
           </div>
           <button
             className="flex justify-center items-center px-[20px] py-[5px]  text-[#fff] bg-[#10Bb32] rounded-lg text-sm md:text-lg font-medium cursor-pointer"
-            onClick={() => {
-              handleSignin;
-            }}
+            type="submit"
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   setIsLogged(true);
+            // }}
           >
             Sign In
           </button>
         </div>
       </form>
-      <AuthDetails />
     </>
   );
 };

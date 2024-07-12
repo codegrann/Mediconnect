@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import ClickForward from "../Minor/Actions/ClickForward";
 
 function Aboutus() {
+  const navigate = useNavigate();
   return (
     <div
       className="mt-6 max-md:max-w-[420px] mx-auto  md:w-5/6 md:mb-24"
@@ -29,7 +32,9 @@ function Aboutus() {
             ipsa adipisci qui. Quae dolorem iure excepturi velit consequatur,
             earum molestias commodi nesciunt ipsa adipisci qui.
           </p>
-          <ClickForward label="Our services" buttonType="" />
+          <a href="#services" className=" w-full">
+            <ClickForward label="Our services" buttonType="" />
+          </a>
         </div>
       </div>
     </div>
